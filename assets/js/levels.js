@@ -5,7 +5,7 @@ var DressWood = new Template(room, dressWood, statusBar2, taskAccessory, optionS
 var DressBlueSunglasses = new Template(room, dressBlueSunglasses, statusBar3,taskPlace, optionNightBeach, optionDayBeach, "DressBlueSunglassesNight", "DressBlueSunglassesDay")
 var DressBlueChocker = new Template(room, dressBlueChocker, statusBar3,taskPlace, optionNightBeach, optionDayBeach, "DressBlueChockerNight", "DressBlueChockerDay")
 var DressWoodSunglasses = new Template(room,dressWoodSunglasses, statusBar3, taskPlace, optionNightBeach, optionDayBeach,  "DressWoodSunglassesNight", "DressWoodSunglassesDay")
-var DressWoodChocker = new Template(room,dressWoodSunglasses, statusBar3, taskPlace, optionNightBeach, optionDayBeach,  "DressWoodChockerNight", "DressWoodChockerDay")
+var DressWoodChocker = new Template(room,dressWoodChocker, statusBar3, taskPlace, optionNightBeach, optionDayBeach,  "DressWoodChockerNight", "DressWoodChockerDay")
 
 var DressBlueSunglassesNight = new Result(nightBeach, dressBlueSunglasses);
 var DressBlueSunglassesDay = new Result(dayBeach, dressBlueSunglasses);

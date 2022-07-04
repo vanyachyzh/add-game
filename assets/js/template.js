@@ -8,7 +8,8 @@ class Template {
             this.statusBar = statusBar,
             this.hand = './assets/images/hint pointer.png',
             this.nextStep1 = nextStep1,
-            this.nextStep2 = nextStep2
+            this.nextStep2 = nextStep2,
+            this.magic = "./assets/images/magic.png"
     }
 
     preload() {
@@ -19,11 +20,17 @@ class Template {
         game.load.image('lexy', this.lexy);
         game.load.image('statusBar', this.statusBar);
         game.load.image('hand', this.hand);
+        game.load.image('magic', this.magic);
     }
 
     create() {
         var backgroundSprite = this.add.sprite(0, 0, "background");
         var lexySprite = this.add.sprite(106, 31, "lexy");
+        var magic = this.add.sprite(0,90, "magic")
+        magic.height = 600;
+        magic.width = 600;
+        game.add.tween(magic).to({alpha: 0}, 400, Phaser.Easing.Linear.None, true);
+
         var statusBarSprite = this.add.sprite(300, 31, "statusBar");
         var handSprite = this.add.sprite(128, 901, "hand");
         var timer = setTimeout(timeout, 2000);
@@ -48,10 +55,14 @@ class Template {
             option1Button.anchor.set(0.5, 0.5);
             option1Button.width = 250;
             option1Button.height = 276;
+            option1Button.scale.setTo(0,0)
+            game.add.tween(option1Button.scale).to({x:0.5,y:0.5}, 300, Phaser.Easing.Linear.None, true).start()
 
             option2Button.anchor.set(0.5, 0.5);
             option2Button.width = 250;
             option2Button.height = 276;
+            option2Button.scale.setTo(0,0)
+            game.add.tween(option2Button.scale).to({x:0.5,y:0.5}, 300, Phaser.Easing.Linear.None, true).start()
         }, 1000)
 
         document.querySelector("body").onmousemove = function () {
@@ -60,11 +71,16 @@ class Template {
         }
     }
     press (e) {
-        game.add.tween(e.scale).to({ x: 0.48, y: 0.48 }, 150, Phaser.Easing.Linear.None, true).start()
+        game.add.tween(e.scale).to({ x: 0.48, y: 0.48 }, 150, Phaser.Easing.Linear.None, true).start();
+        game.add.tween(this.magic).to({alpha: 1}, 400, Phaser.Easing.Linear.None, true);
         if (e.key == "option1") {
-            game.state.start(this.nextStep1);
+            setTimeout(()=>{
+                game.state.start(this.nextStep1);
+            },400);
         } else if (e.key == "option2") {
-            game.state.start(this.nextStep2)
+            setTimeout(()=>{
+                game.state.start(this.nextStep2)
+            },400);
         }
     }
 }

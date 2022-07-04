@@ -4,7 +4,7 @@ var Tutorial = {
         game.load.image('room', room);
         game.load.image('overlay', './assets/images/overlay.png');
         game.load.image('lexy2', pjsEmbaressed);
-        game.load.image('chooseYourDress', taskDress);
+        game.load.image('taskDress', taskDress);
         game.load.image('dress', optionDress);
         game.load.image('shorts', optionShorts);
         game.load.image('lexy', pjsBig);
@@ -14,19 +14,18 @@ var Tutorial = {
     {
         var room = this.add.sprite(0, 0, "room");
 
-        var chooseYourDress = this.add.sprite(63, -50, "chooseYourDress");
-        game.add.tween(chooseYourDress).to({x:63, y:10}, 300).start()
+        var taskDress = this.add.sprite(63, -50, "taskDress");
+        game.add.tween(taskDress).to({x:63, y:10}, 300).start()
 
         var overlay = this.add.sprite(300, 450, "overlay");
         overlay.anchor.set(0.5,0.5)
-        game.add.tween(overlay).to({visible: false}, 300, Phaser.Easing.Linear.None, true).start()
+        game.add.tween(overlay).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
 
         var lexy = this.add.sprite(300, 450, "lexy");
         lexy.anchor.set(0.5,0.5)
         game.add.tween(lexy.scale).to({x:0.83,y:0.83}, 300, Phaser.Easing.Linear.None, true).start()
         game.add.tween(lexy).to({x:294, y:427}, 300).start()
 
-        
         setTimeout(()=>{
             var lexy2 = this.add.sprite(106, 31, "lexy2");
 
@@ -50,16 +49,6 @@ var Tutorial = {
         },400)
 
         setTimeout(()=>{
-            // var yellowLight = this.add.sprite(167,703, "yellowLight")
-            // var yellowLight2 = this.add.sprite(435,703, "yellowLight")
-            // yellowLight.anchor.set(0.5, 0.5);
-            // yellowLight.width = 272;
-            // yellowLight.height = 298;
-            // yellowLight.visible=false
-            // yellowLight2.anchor.set(0.5, 0.5);
-            // yellowLight2.width = 272;
-            // yellowLight2.height = 298;
-            // yellowLight2.visible=false
             var hand = this.add.sprite(128,959,"hand")
             game.add.tween(hand).to({y:659}, 800).to({x:400}, 800).to({x:100}, 800).start()
             setTimeout(() => {
@@ -70,14 +59,14 @@ var Tutorial = {
     },
     press: function (e){
         game.add.tween(e.scale).to({x:0.48,y:0.48}, 150, Phaser.Easing.Linear.None, true).start()
-        console.log(e.key)
         if(e.key=="dress"){
             setTimeout(()=>{
-
                 game.state.start('Dress')
-            },150);
+            },400);
         }else if(e.key=="shorts"){
-            game.state.start('Shorts')
+            setTimeout(()=>{
+                game.state.start('Shorts')
+            },400)
         }
     }
 

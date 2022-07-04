@@ -34,11 +34,7 @@ game.state.add("ShortsWoodSunglassesDay",ShortsWoodSunglassesDay)
 game.state.add("ShortsWoodNecklaceNight",ShortsWoodNecklaceNight)
 game.state.add("ShortsWoodNecklaceDay",ShortsWoodNecklaceDay)
 
-
-
-
-
 game.state.start("Dress")
 game.state.start('Tutorial');
 game.state.start('Intro');
-// game.state.start("ShortsWoodNecklace");
+

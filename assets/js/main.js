@@ -9,14 +9,14 @@ var game;
 //         height: 900
 //     }
 // }
-var gameConfig = {
-    type: Phaser.CANVAS,
-    parent: 'phaser-example',
-    width: 600,
-    height: 900
-
-};
-game = new Phaser.Game(gameConfig);
+// var gameConfig = {
+//     type: Phaser.CANVAS,
+//     parent: 'phaser-example',
+//     width: 800,
+//     height: 600,
+//     scene: sceneConfig
+// };
+game = new Phaser.Game(600, 900, Phaser.AUTO, "ph_game");
 game.state.add('Intro', Intro);
 game.state.add('Tutorial', Tutorial);
 game.state.add("Dress", Dress)

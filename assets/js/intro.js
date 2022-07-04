@@ -9,6 +9,9 @@ var Intro = {
 
     },
     create: function () {
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
         var room = this.add.sprite(0, 0, "room");
         var overlay = this.add.sprite(0, 0, "overlay");
         var paul = this.add.sprite(0, 0, "paul");

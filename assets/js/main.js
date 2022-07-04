@@ -1,22 +1,5 @@
 var game;
-// var config = {
-//     type: Phaser.AUTO,
-//     scale: {
-//         mode: Phaser.Scale.FIT,
-//         parent: 'phaser-example',
-//         autoCenter: Phaser.Scale.CENTER_BOTH,
-//         width: 600,
-//         height: 900
-//     }
-// }
-// var gameConfig = {
-//     type: Phaser.CANVAS,
-//     parent: 'phaser-example',
-//     width: 800,
-//     height: 600,
-//     scene: sceneConfig
-// };
-game = new Phaser.Game(600, 900, Phaser.AUTO, "ph_game");
+game = new Phaser.Game(600, 900, Phaser.CAVAS, "ph_game");
 game.state.add('Intro', Intro);
 game.state.add('Tutorial', Tutorial);
 game.state.add("Dress", Dress)
